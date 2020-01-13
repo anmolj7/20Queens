@@ -47,8 +47,12 @@ def prev():
         gen()
     solutions = pickle.load(open(fName, 'rb'))
     N = len(solutions)
-    N = random.randint(1, N)
-    print_board(solutions[N])
+    N_Outputs = int(input(f'How  Many Outputs Do You Wanna Print? There are currently {N} outputs stored.\nChoice: '))
+    assert N_Outputs < N, "Can't be bigger than the number of outputs!"
+    for _ in range(N_Outputs):
+        temp = random.randint(1, N)
+        print(f'{temp}th Solution out of {N}')
+        print_board(solutions[temp])
 
 
 def main():
